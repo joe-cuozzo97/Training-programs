@@ -7,15 +7,21 @@ var session = require('express-session');
 var passport = require('passport');
 
 
-
-var indexRouter = require('./routes/index');
-var programsRouter = require('./routes/programs');
-
 require("dotenv").config();
 
 require("./config/database");
 
 require('./config/passport');
+
+
+var indexRouter = require('./routes/index');
+var programsRouter = require('./routes/programs');
+var commentsRouter = require('./routes/comments')
+
+
+
+
+
 
 
 

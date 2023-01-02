@@ -1,9 +1,11 @@
 exports.programs = [
-{title: 'First program', DaysPerWeek: 3, Movement: 'Squats', Load: 200, Sets: 3, Reps: 10},
+{title: 'First program', LengthInWeeks:8, DaysPerWeek: 3, Split: 'full body'},
 
-{title: 'Second program', DaysPerWeek: 3, Movement: 'Bench Press', Load: 175, Sets: 3, Reps: 8}
+{title: 'First program', LengthInWeeks:10, DaysPerWeek: 4, Split: "upper lower"}
 
 
 
 ]
+
+
 

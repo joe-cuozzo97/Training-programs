@@ -1,7 +1,19 @@
-<%- include ('../partials/header') %>
+<%- include('../partials/header') %>
 
+<section>
+  <div>Title:</div>
+  <div><%= program.title %></div>
+  <div>Length in Weeks:</div>
+  <div><%= program.lengthInWeeks %></div>
+  <div>Days Per Week:</div>
+  <div><%= program.daysPerWeek %></div>
+</section>
 
-
-
-
-<%- include ('../partials/footer') %>
+<% if (user) { %>
+<form
+  id="add-comment-form" method="POST" action="/programs/<%= program._id %>/comments">
+  <label>Comments:</label>
+  <textarea name="content"></textarea>
+  <button type="submit">Add Comment</button>
+</form>
+<% } %> <%- include('../partials/footer') %>

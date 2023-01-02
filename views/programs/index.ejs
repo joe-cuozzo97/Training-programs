@@ -1,21 +1,36 @@
 <%- include('../partials/header') %>
 
 <table>
+  <thead>
     <tr>
-      <th>Company</th>
-      <th>Contact</th>
-      <th>Country</th>
+      <th>Title</th>
+      <th>Length In Weeks</th>
+      <th>Days Per Week</th>
     </tr>
-    <tr>
-      <td>Alfreds Futterkiste</td>
-      <td>Maria Anders</td>
-      <td>Germany</td>
-    </tr>
-    <tr>
-      <td>Centro comercial Moctezuma</td>
-      <td>Francisco Chang</td>
-      <td>Mexico</td>
-    </tr>
-  </table>
+  </thead>
+  <tbody>
+    <% programs.forEach(function(p) { %>
+      <tr>
+        <td>
+          <%= p.title %>
+        </td>
+        <td>
+          <%= p.lengthInWeeks %>
+        </td>
+        <td>
+          <%= p.daysPerWeek %>
+        </td>
+        <td><a href="/programs/<%= p._id %>">DETAILS</a></td>
+      </tr>
+      <% }); %>
+  </tbody>
+</table>
+
+
+<!-- take away the "=" and you can loop over your programs-for loop programs.length  -->
+
+
+
+
 
 <%- include('../partials/footer') %>

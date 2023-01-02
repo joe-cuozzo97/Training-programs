@@ -2,34 +2,33 @@ const mongoose = require("mongoose");
 // opitonal shortcut to the mongoose.Schema class
 const Schema = mongoose.Schema;
 
-const programSchema = new Schema(
-    {
-  Title: {
+const commentSchema = new Schema(
+  {
+    content: String,
+    rating: { type: Number, min: 1, max: 5, default: 3 },
+    user: { type: Schema.Types.ObjectId, ref: "User" },
+    userName: String,
+    userAvatar: String,
+  },
+  {
+    timestamps: true,
+  }
+);
+
+const programSchema = new Schema({
+  title: {
     type: String,
     required: true,
   },
-  DaysPerWeek: {
+  lengthInWeeks: {
     type: Number,
     required: true,
   },
-  Movement: {
-    type: String,
-    required: true,
-  },
-  Load: {
+  daysPerWeek: {
     type: Number,
     required: true,
   },
-  Sets: {
-    type: Number,
-    required: true,
-  },
-  Reps: {
-    type: Number,
-    required: true,
-  },
-
-
+  comments: [commentSchema],
 });
 
 module.exports = mongoose.model("Program", programSchema);

@@ -1,12 +1,41 @@
-const Program = require("../models/program");
+const Program = require("../models/program")
 
 module.exports = {
   index,
+  new: newProgram,
+  create,
+  show
 };
 
-
-
 function index(req, res) {
-    res.render('programs/index', {title: 'programs'})
+    Program.find({}, function (err, programs) {
+      res.render('programs/index', { title: 'All Programs', programs })
+  })
 
+}
+
+function newProgram(req, res) {
+  res.render('programs/new', {title: 'Training Programs'})
+}
+
+function create(req, res) {
+  Program.create(req.body, (err, createdProgram) => {
+    if(err) {console.log(err);}
+    else{
+      console.log(createdProgram);
+      res.redirect('/programs')
+    }
+  }
+  )
+}
+
+function show(req, res){
+  Program.findById(req.params.id,(err, program) => {
+    if(err){
+      console.log(err)
+    } else {
+      res.render('programs/show', { title: 'Program Details', program} )
+
+    }
+  })
 }
