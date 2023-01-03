@@ -19,12 +19,6 @@ var programsRouter = require('./routes/programs');
 var commentsRouter = require('./routes/comments')
 
 
-
-
-
-
-
-
 var app = express();
 
 // view engine setup
@@ -56,6 +50,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/programs', programsRouter);
+app.use("/", commentsRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
