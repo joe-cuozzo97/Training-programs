@@ -10,280 +10,45 @@
 </section>
 
 
+<!-- loop over tmeplates array then order the results based on the day -sort method?? -->
+<!-- turn the tables into forms and each form needs an edit option- can change and resubmit the program -->
 
+<form action="/programs/<%= program._id %>">
+<% let daysOfWeek = ['0','1','2','3','4','5','6'] %>
+<% program.templates.forEach(function(template){ %>
 
-<table>
-  <tr>
-    <th>Exercise</th>
-    <th>Weights</th>
-    <th>Sets</th>
-    <th>Reps</th>
-  </tr>
-  <tr>
-    <td><input type="text" name="exercise" /></td>
-    <td><input type="number" name="weight" /></td>
-    <td><input type="number" name="sets" /></td>
-    <td><input type="number" name="reps" /></td>  </tr>
-  </tr>
-  <tr>
-    <td><input type="text" name="exercise" /></td>
-    <td><input type="number" name="weight" /></td>
-    <td><input type="number" name="sets" /></td>
-    <td><input type="number" name="reps" /></td>  </tr>
-  </tr>
-  <tr>
-    <td><input type="text" name="exercise" /></td>
-    <td><input type="number" name="weight" /></td>
-    <td><input type="number" name="sets" /></td>
-    <td><input type="number" name="reps" /></td>  </tr>
-  </tr>
-  <tr>
-    <td><input type="text" name="exercise" /></td>
-    <td><input type="number" name="weight" /></td>
-    <td><input type="number" name="sets" /></td>
-    <td><input type="number" name="reps" /></td>  </tr>
-  </tr>
-  <tr>
-    <td><input type="text" name="exercise" /></td>
-    <td><input type="number" name="weight" /></td>
-    <td><input type="number" name="sets" /></td>
-    <td><input type="number" name="reps" /></td>  </tr>
-  </tr>
-  <tr>
-    <td><input type="text" name="exercise" /></td>
-    <td><input type="number" name="weight" /></td>
-    <td><input type="number" name="sets" /></td>
-    <td><input type="number" name="reps" /></td>  </tr>
-  </tr>
-  <tr>
-    <td><input type="text" name="exercise" /></td>
-    <td><input type="number" name="weight" /></td>
-    <td><input type="number" name="sets" /></td>
-    <td><input type="number" name="reps" /></td>  </tr>
-  </tr>
-</table>
+  <h3><%= daysOfWeek[template.day] %></h3>
+ 
+  <table>
+    <tr>
+      <th>Exercise</th>
+      <th>Weights</th>
+      <th>Sets</th>
+      <th>Reps</th>
+    </tr>
+    <% for (let i = 0; i < 7; i++){ %>
+      <tr>
+        <td><input type="text" name="exercise" value="<%=template.exercise[i] %>" /></td>
+        <td><input type="number" name="weight" value="<%=template.weight[i] %>" /></td>
+        <td><input type="number" name="sets" value="<%=template.sets[i] %>" /></td>
+        <td><input type="number" name="reps" value="<%=template.reps[i] %>" /></td>  
+      </tr>
+    
+    <% } %>
+    
+    
+    
+  </table>
+  
 
 
 
-<table>
-  <tr>
-    <th>Exercise</th>
-    <th>Weights</th>
-    <th>Sets</th>
-    <th>Reps</th>
-  </tr>
-  <tr>
-    <td><input type="text" name="exercise" /></td>
-    <td><input type="number" name="weight" /></td>
-    <td><input type="number" name="sets" /></td>
-    <td><input type="number" name="reps" /></td>  </tr>
-  </tr>
-  <tr>
-    <td><input type="text" name="exercise" /></td>
-    <td><input type="number" name="weight" /></td>
-    <td><input type="number" name="sets" /></td>
-    <td><input type="number" name="reps" /></td>  </tr>
-  </tr>
-  <tr>
-    <td><input type="text" name="exercise" /></td>
-    <td><input type="number" name="weight" /></td>
-    <td><input type="number" name="sets" /></td>
-    <td><input type="number" name="reps" /></td>  </tr>
-  </tr>
-  <tr>
-    <td><input type="text" name="exercise" /></td>
-    <td><input type="number" name="weight" /></td>
-    <td><input type="number" name="sets" /></td>
-    <td><input type="number" name="reps" /></td>  </tr>
-  </tr>
-  <tr>
-    <td><input type="text" name="exercise" /></td>
-    <td><input type="number" name="weight" /></td>
-    <td><input type="number" name="sets" /></td>
-    <td><input type="number" name="reps" /></td>  </tr>
-  </tr>
-  <tr>
-    <td><input type="text" name="exercise" /></td>
-    <td><input type="number" name="weight" /></td>
-    <td><input type="number" name="sets" /></td>
-    <td><input type="number" name="reps" /></td>  </tr>
-  </tr>
-  <tr>
-    <td><input type="text" name="exercise" /></td>
-    <td><input type="number" name="weight" /></td>
-    <td><input type="number" name="sets" /></td>
-    <td><input type="number" name="reps" /></td>  </tr>
-  </tr>
-</table>
+  
+  <% })  %>
 
 
-<table>
-  <tr>
-    <th>Exercise</th>
-    <th>Weights</th>
-    <th>Sets</th>
-    <th>Reps</th>
-  </tr>
-  <tr>
-    <td><input type="text" name="exercise" /></td>
-    <td><input type="number" name="weight" /></td>
-    <td><input type="number" name="sets" /></td>
-    <td><input type="number" name="reps" /></td>  </tr>
-  </tr>
-  <tr>
-    <td><input type="text" name="exercise" /></td>
-    <td><input type="number" name="weight" /></td>
-    <td><input type="number" name="sets" /></td>
-    <td><input type="number" name="reps" /></td>  </tr>
-  </tr>
-  <tr>
-    <td><input type="text" name="exercise" /></td>
-    <td><input type="number" name="weight" /></td>
-    <td><input type="number" name="sets" /></td>
-    <td><input type="number" name="reps" /></td>  </tr>
-  </tr>
-  <tr>
-    <td><input type="text" name="exercise" /></td>
-    <td><input type="number" name="weight" /></td>
-    <td><input type="number" name="sets" /></td>
-    <td><input type="number" name="reps" /></td>  </tr>
-  </tr>
-  <tr>
-    <td><input type="text" name="exercise" /></td>
-    <td><input type="number" name="weight" /></td>
-    <td><input type="number" name="sets" /></td>
-    <td><input type="number" name="reps" /></td>  </tr>
-  </tr>
-  <tr>
-    <td><input type="text" name="exercise" /></td>
-    <td><input type="number" name="weight" /></td>
-    <td><input type="number" name="sets" /></td>
-    <td><input type="number" name="reps" /></td>  </tr>
-  </tr>
-  <tr>
-    <td><input type="text" name="exercise" /></td>
-    <td><input type="number" name="weight" /></td>
-    <td><input type="number" name="sets" /></td>
-    <td><input type="number" name="reps" /></td>  </tr>
-  </tr>
-</table>
-
-
-<table>
-  <tr>
-    <th>Exercise</th>
-    <th>Weights</th>
-    <th>Sets</th>
-    <th>Reps</th>
-  </tr>
-  <tr>
-    <td><input type="text" name="exercise" /></td>
-    <td><input type="number" name="weight" /></td>
-    <td><input type="number" name="sets" /></td>
-    <td><input type="number" name="reps" /></td>  </tr>
-  </tr>
-  <tr>
-    <td><input type="text" name="exercise" /></td>
-    <td><input type="number" name="weight" /></td>
-    <td><input type="number" name="sets" /></td>
-    <td><input type="number" name="reps" /></td>  </tr>
-  </tr>
-  <tr>
-    <td><input type="text" name="exercise" /></td>
-    <td><input type="number" name="weight" /></td>
-    <td><input type="number" name="sets" /></td>
-    <td><input type="number" name="reps" /></td>  </tr>
-  </tr>
-  <tr>
-    <td><input type="text" name="exercise" /></td>
-    <td><input type="number" name="weight" /></td>
-    <td><input type="number" name="sets" /></td>
-    <td><input type="number" name="reps" /></td>  </tr>
-  </tr>
-  <tr>
-    <td><input type="text" name="exercise" /></td>
-    <td><input type="number" name="weight" /></td>
-    <td><input type="number" name="sets" /></td>
-    <td><input type="number" name="reps" /></td>  </tr>
-  </tr>
-  <tr>
-    <td><input type="text" name="exercise" /></td>
-    <td><input type="number" name="weight" /></td>
-    <td><input type="number" name="sets" /></td>
-    <td><input type="number" name="reps" /></td>  </tr>
-  </tr>
-  <tr>
-    <td><input type="text" name="exercise" /></td>
-    <td><input type="number" name="weight" /></td>
-    <td><input type="number" name="sets" /></td>
-    <td><input type="number" name="reps" /></td>  </tr>
-  </tr>
-</table>
-
-
-<table>
-  <tr>
-    <th>Exercise</th>
-    <th>Weights</th>
-    <th>Sets</th>
-    <th>Reps</th>
-  </tr>
-  <tr>
-    <td><input type="text" name="exercise" /></td>
-    <td><input type="number" name="weight" /></td>
-    <td><input type="number" name="sets" /></td>
-    <td><input type="number" name="reps" /></td>  </tr>
-  </tr>
-  <tr>
-    <td><input type="text" name="exercise" /></td>
-    <td><input type="number" name="weight" /></td>
-    <td><input type="number" name="sets" /></td>
-    <td><input type="number" name="reps" /></td>  </tr>
-  </tr>
-  <tr>
-    <td><input type="text" name="exercise" /></td>
-    <td><input type="number" name="weight" /></td>
-    <td><input type="number" name="sets" /></td>
-    <td><input type="number" name="reps" /></td>  </tr>
-  </tr>
-  <tr>
-    <td><input type="text" name="exercise" /></td>
-    <td><input type="number" name="weight" /></td>
-    <td><input type="number" name="sets" /></td>
-    <td><input type="number" name="reps" /></td>  </tr>
-  </tr>
-  <tr>
-    <td><input type="text" name="exercise" /></td>
-    <td><input type="number" name="weight" /></td>
-    <td><input type="number" name="sets" /></td>
-    <td><input type="number" name="reps" /></td>  </tr>
-  </tr>
-  <tr>
-    <td><input type="text" name="exercise" /></td>
-    <td><input type="number" name="weight" /></td>
-    <td><input type="number" name="sets" /></td>
-    <td><input type="number" name="reps" /></td>  </tr>
-  </tr>
-  <tr>
-    <td><input type="text" name="exercise" /></td>
-    <td><input type="number" name="weight" /></td>
-    <td><input type="number" name="sets" /></td>
-    <td><input type="number" name="reps" /></td>  </tr>
-  </tr>
-</table><br><br>
-
-
-
-
-
-
-
-
-
-
-
-
-
+  <button class="submitBtn" type="submit">SUBMIT</button><br><br>
+</form>
 
 
 
@@ -295,7 +60,7 @@
   id="add-comment-form" method="POST" action="/programs/<%= program._id %>/comments">
   <label>Comments:</label>
   <textarea name="content"></textarea>
-  <button type="submit">Add Comment</button>
+  <button class="deleteBtn" type="submit">Add Comment</button>
 </form>
 <% } %>
 

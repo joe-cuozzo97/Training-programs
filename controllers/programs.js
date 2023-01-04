@@ -5,6 +5,10 @@ module.exports = {
   new: newProgram,
   create,
   show,
+  createExercise,
+  delete: deleteProgram,
+  update,
+  edit,
 };
 
 function index(req, res) {
@@ -13,22 +17,32 @@ function index(req, res) {
   });
 }
 
-
 function newProgram(req, res) {
-  Program.find({}, function(err, programs){
+  Program.find({}, function (err, programs) {
     res.render("programs/new", { title: "Training Programs", programs });
-  })
+  });
 }
+
+let defaultTemplate = require("../template.js");
 
 function create(req, res) {
   Program.create(req.body, (err, createdProgram) => {
-    if (err) {
-      console.log(err);
-    } else {
-      console.log(createdProgram);
-      res.redirect("/programs/new");
-    }
+    defaultTemplate.forEach(function (template) {
+      createdProgram.templates.push(template);
+    });
+    createdProgram.save(function (err) {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log(createdProgram);
+        res.redirect("/programs/new");
+      }
+    });
   });
+}
+
+function createExercise(req, res) {
+  console.log(req.body);
 }
 
 function show(req, res) {
@@ -36,7 +50,41 @@ function show(req, res) {
     if (err) {
       console.log(err);
     } else {
+      program.templates.sort(function (a, b) {
+        return a.day - b.day;
+      });
+      console.log(program);
       res.render("programs/show", { title: "Program Details", program });
     }
   });
+}
+
+function deleteProgram(req, res) {
+  Program.findOneAndDelete(
+    req.params.id ,function (err) {
+      // Deleted book, so must redirect to index
+      res.redirect("/programs");
+    }
+  );
+}
+
+function edit() {
+  Program.findById(req.params.id).then(function (program) {
+    res.render("/programs/update", { workout });
+  });
+}
+async function update(req, res, next) {
+  try {
+    const filter = { _id: req.params.id };
+    let instance = await Model.findOneAndUpdate(filter, req.body, {
+      upsert: true,
+    });
+    await instance.save((err) => {
+      return res.redirect("/programs");
+    });
+  } catch {
+    (err) => {
+      console.warn(err.message);
+    };
+  }
 }

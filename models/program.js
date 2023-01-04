@@ -3,47 +3,26 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 
-const oneFullWeekSchema = new Schema({
-day1:{
-  type:String,
-  required: true,
-},
-day2:{
-  type:String,
-  required: true,
-},
-day3:{
-  type:String,
-  required: true,
-},
-day4:{
-  type:String,
-  required: false,
-},
-day5:{
-  type:String,
-  required: false,
-},
-})
-
-
-
 const templateSchema = new Schema({
   exercise: {
-    type: String,
+    type: Array,
     required: true,
   },
   weight: {
-    type: Number,
+    type: Array,
     required: true,
   },
   sets: {
-    type: Number,
+    type: Array,
     required: true,
   },
   reps: {
-    type: Number,
+    type: Array,
     required: false,
+  },
+  day: {
+    type: Number,
+    required: true,
   },
 });
 
@@ -77,7 +56,7 @@ const programSchema = new Schema({
 
   comments: [commentSchema],
 
-  oneFullWeek: [oneFullWeekSchema],
+
 });
 
 module.exports = mongoose.model("Program", programSchema);
