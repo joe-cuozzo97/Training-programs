@@ -25,6 +25,7 @@ function newProgram(req, res) {
 
 let defaultTemplate = require("../template.js");
 
+
 function create(req, res) {
   Program.create(req.body, (err, createdProgram) => {
     defaultTemplate.forEach(function (template) {
@@ -59,13 +60,9 @@ function show(req, res) {
   });
 }
 
-function deleteProgram(req, res) {
-  Program.findOneAndDelete(
-    req.params.id ,function (err) {
-      // Deleted book, so must redirect to index
-      res.redirect("/programs");
-    }
-  );
+async function deleteProgram(req, res) {
+  let program = await Program.findByIdAndDelete(req.params.id)
+    res.redirect('/programs')
 }
 
 function edit() {
@@ -73,6 +70,7 @@ function edit() {
     res.render("/programs/update", { workout });
   });
 }
+
 async function update(req, res, next) {
   try {
     const filter = { _id: req.params.id };
@@ -88,3 +86,17 @@ async function update(req, res, next) {
     };
   }
 }
+
+
+//conditional to see if daysperweek variable is equal to 3,4, or 5 day options?
+
+  // if (program.daysPerWeek === 3){
+  //   result = program.template[0, 1, 2]
+  // } else if (program.daysPerWeek === 4){
+  //   result = program.template[0, 1, 2, 3]
+  // }else {
+  //   result = program.template[0, 1, 2, 3, 4]
+  // }
+  // return result
+
+  

@@ -21,22 +21,24 @@ function create(req, res) {
 
 function deleteComment(req, res, next){
 // Note the cool "dot" syntax to query on the property of a subdoc
-Program.findOne({'comments._id': req.params.id}).then(function(program) {
-  // Find the review subdoc using the id method on Mongoose arrays
-  // https://mongoosejs.com/docs/subdocs.html
-  const review = program.comments.id(req.params.id);
-  // Ensure that the review was created by the logged in user
-  if (!comment.user.equals(req.user._id)) return res.redirect(`/programs/${program._id}`);
-  // Remove the review using the remove method of the subdoc
-  comment.remove();
-  // Save the updated movie
-  program.save().then(function() {
-    // Redirect back to the movie's show view
-    res.redirect(`/programs/${program._id}`);
-  }).catch(function(err) {
-    // Let Express display an error
-    return next(err);
-    // res.redirect(`/programs/${program._id}`);
-  });
-});
+  // Note the cool "dot" syntax to query on the property of a subdoc
+  // Program.findOne({'comments._id': req.params.id}).then(function(program) {
+    // Find the review subdoc using the id method on Mongoose arrays
+    // https://mongoosejs.com/docs/subdocs.html
+  //   const comment = program.comment.id(req.params.id);
+  //   // Ensure that the review was created by the logged in user
+  //   if (!comment.user.equals(req.user._id)) return res.redirect(`/programs/${program._id}`);
+  //   // Remove the review using the remove method of the subdoc
+  //   comment.remove();
+  //   // Save the updated movie
+  //   program.save().then(function() {
+  //     // Redirect back to the movie's show view
+  //     res.redirect(`/programs/${program._id}`);
+  //   }).catch(function(err) {
+  //     // Let Express display an error
+  //     return next(err);
+  //     // res.redirect(`/movies/${movie._id}`);
+  //   });
+  // });
 }
+

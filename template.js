@@ -1,3 +1,5 @@
+const program = require("./models/program")
+
 module.exports = [
     {
         day: '1',
