@@ -72,20 +72,35 @@ function edit() {
 }
 
 async function update(req, res, next) {
-  try {
-    const filter = { _id: req.params.id };
-    let instance = await Model.findOneAndUpdate(filter, req.body, {
-      upsert: true,
-    });
-    await instance.save((err) => {
-      return res.redirect("/programs");
-    });
-  } catch {
-    (err) => {
-      console.warn(err.message);
-    };
-  }
+ 
+  const filter = { _id: req.params.id };
+  let instance = await Program.findOne(filter);
+  instance.templates[0] = req.body;
+
+  instance.save((err) => {
+    return res.redirect("/programs");
+  });
 }
+
+
+
+// async function update(req, res, next) {
+//   console.log(req.body)
+//   try {
+//     const filter = { _id: req.params.id };
+//     let instance = await Program.findOneAndUpdate(filter, req.body, {
+//       upsert: true,
+//     });
+//     console.log('this is the' + instance)
+//     await instance.save((err) => {
+//       return res.redirect("/programs");
+//     });
+//   } catch {
+//     (err) => {
+//       console.warn(err.message);
+//     };
+//   }
+// }
 
 
 //conditional to see if daysperweek variable is equal to 3,4, or 5 day options?

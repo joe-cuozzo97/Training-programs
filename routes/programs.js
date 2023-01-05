@@ -7,7 +7,7 @@ const isLoggedIn = require('../config/auth')
 
 router.get('/', programsCtrl.index)
 router.get('/new', isLoggedIn, programsCtrl.new)
-router.get('/:id', isLoggedIn, programsCtrl.show)
+router.get('/:id', programsCtrl.show)
 router.get('/programs/:id/edit', programsCtrl.edit)
 router.post('/', programsCtrl.create)
 router.delete('/:id', isLoggedIn, programsCtrl.delete)

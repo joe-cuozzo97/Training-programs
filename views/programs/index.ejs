@@ -20,16 +20,18 @@
         <td>
           <%= p.daysPerWeek %>
         </td>
-        <td><a href="/programs/<%= p._id %>">DETAILS</a></td>
+        <td><a href="/programs/<%= p._id %>">Daily Schedule</a></td>
         <td>
           <form action="/programs/<%= p._id %>?_method=DELETE" method="POST">
-          <button type="submit">X</button>
+          <button class="deleteBtn" type="submit">X</button>
           </form>
         </td>
       </tr>
       <% }); %>
   </tbody>
 </table>
+
+<img class="indexPageImg" src="https://i.imgur.com/BOruxV2.jpg" alt="">
 
 
 <!-- take away the "=" and you can loop over your programs-for loop programs.length  -->

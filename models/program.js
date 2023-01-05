@@ -6,15 +6,15 @@ const Schema = mongoose.Schema;
 const templateSchema = new Schema({
   exercise: {
     type: Array,
-    required: true,
+    required: false,
   },
   weight: {
     type: Array,
-    required: true,
+    required: false,
   },
   sets: {
     type: Array,
-    required: true,
+    required: false,
   },
   reps: {
     type: Array,
@@ -22,7 +22,7 @@ const templateSchema = new Schema({
   },
   day: {
     type: Number,
-    required: true,
+    required: false,
   },
 });
 

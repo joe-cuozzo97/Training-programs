@@ -1,10 +1,11 @@
 <%- include('../partials/header') %>
 
-<form action="/programs" method="POST">
+<section class="newFormSection">
+<form class="newForm" action="/programs" method="POST">
   <label>Title:</label>
-  <input type="text" name="title" />
-  <label>Length of Program In Weeks</label>
-  <select name="lengthInWeeks">
+  <input class="newFormTitle" type="text" name="title" /><br>
+  <label>Length of Program In Weeks:</label>
+  <select class="newFormLength" name="lengthInWeeks">
     <option value="6">6</option>
     <option value="7">7</option>
     <option value="8">8</option>
@@ -12,17 +13,17 @@
     <option value="10">10</option>
     <option value="11">11</option>
     <option value="12">12</option>
-  </select>
-  <label>Days Per Week</label>
-  <select name="daysPerWeek">
+  </select><br>
+  <label>Days Per Week:</label>
+  <select class="newFormDays" name="daysPerWeek">
     <option value="3">3</option>
     <option value="4">4</option>
     <option value="5">5</option>
   </select><br><br><br>
   <button class="createBtn" type="submit">CREATE PROGRAM</button>
 </form>
-
-
+</section>
+<img class="newPageImg" src="https://i.imgur.com/i0iCcz3.jpg" alt="">
 
 
 <%- include('../partials/footer') %>
