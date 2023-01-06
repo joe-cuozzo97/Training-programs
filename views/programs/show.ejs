@@ -1,5 +1,8 @@
 <%- include('../partials/header') %>
 
+<h1>Daily Workouts</h1>
+
+
 <section class="programInfo">
   <div>Title:  <%= program.title %></div>
   <div>Length in Weeks:  <%= program.lengthInWeeks %></div>
@@ -7,8 +10,6 @@
 </section>
 
 
-<!-- loop over tmeplates array then order the results based on the day -sort method?? -->
-<!-- turn the tables into forms and each form needs an edit option- can change and resubmit the program -->
 
 <form action="/programs/<%= program._id %>?_method=PUT" method="POST">
 <% let daysOfWeek = ['0','1','2','3','4','5','6'] %>
@@ -19,16 +20,16 @@
   <table>
     <tr>
       <th>Exercise</th>
-      <th>Weights</th>
+      <th>Weight</th>
       <th>Sets</th>
       <th>Reps</th>
     </tr>
     <% for (let i = 0; i < 7; i++){ %>
       <tr>
-        <td class="templateRow"><input type="text" name="exercise" value="<%=template.exercise[i] %>" /></td>
-        <td class="templateRow"><input type="number" name="weight" value="<%=template.weight[i] %>" /></td>
-        <td class="templateRow"><input type="number" name="sets" value="<%=template.sets[i] %>" /></td>
-        <td class="templateRow"><input type="number" name="reps" value="<%=template.reps[i] %>" /></td>  
+        <td class="templateRow"><input type="text" name="exercise<%= daysOfWeek[template.day] %>" value="<%=template.exercise[i] %>" /></td>
+        <td class="templateRow"><input type="number" name="weight<%= daysOfWeek[template.day] %>" value="<%=template.weight[i] %>" /></td>
+        <td class="templateRow"><input type="number" name="sets<%= daysOfWeek[template.day] %>" value="<%=template.sets[i] %>" /></td>
+        <td class="templateRow"><input type="number" name="reps<%= daysOfWeek[template.day] %>" value="<%=template.reps[i] %>" /></td>  
       </tr>
     
     <% } %>
@@ -57,7 +58,7 @@
 <form
   id="add-comment-form" method="POST" action="/programs/<%= program._id %>/comments">
   <label>Comments:</label>
-  <textarea name="content"></textarea><br>
+  <textarea class="commentTextArea" name="content"></textarea><br><br>
   <button class="commentBtn" type="submit">Add Comment</button>
 </form>
 </section><br><br>
@@ -74,7 +75,7 @@
     <tbody>
       <% program.comments.forEach(function(c) { %>
         <tr>
-          <td class="comment-user"><img alt="avatar" src="<%= c.userAvatar %>"><%= c.userName %></td>
+          <td class="comment-user"><img class="avatarImg" alt="avatar" src="<%= c.userAvatar %>"><br><%= c.userName %></td><br>
           <td><%= c.content%></td>
           <td>
             <% if (user && user._id.equals(c.user)) { %>

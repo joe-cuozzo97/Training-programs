@@ -1,6 +1,7 @@
 <%- include('../partials/header') %>
+<h1>All Programs</h1>
 
-<table>
+<table class="allProgramsTable">
   <thead>
     <tr>
       <th>Title</th>
@@ -20,7 +21,7 @@
         <td>
           <%= p.daysPerWeek %>
         </td>
-        <td><a href="/programs/<%= p._id %>">Daily Schedule</a></td>
+        <td><a href="/programs/<%= p._id %>">Daily Workouts</a></td>
         <td>
           <form action="/programs/<%= p._id %>?_method=DELETE" method="POST">
           <button class="deleteBtn" type="submit">X</button>
@@ -34,7 +35,6 @@
 <img class="indexPageImg" src="https://i.imgur.com/BOruxV2.jpg" alt="">
 
 
-<!-- take away the "=" and you can loop over your programs-for loop programs.length  -->
 
 
 

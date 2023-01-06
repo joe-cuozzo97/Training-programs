@@ -54,7 +54,6 @@ function show(req, res) {
       program.templates.sort(function (a, b) {
         return a.day - b.day;
       });
-      console.log(program);
       res.render("programs/show", { title: "Program Details", program });
     }
   });
@@ -72,12 +71,17 @@ function edit() {
 }
 
 async function update(req, res, next) {
- 
+  console.log('********')
+ console.log(req.body)
+ console.log(Object.keys(req.body))
+ console.log('********')
+
   const filter = { _id: req.params.id };
   let instance = await Program.findOne(filter);
   instance.templates[0] = req.body;
 
   instance.save((err) => {
+    console.log(err)
     return res.redirect("/programs");
   });
 }
@@ -101,17 +105,5 @@ async function update(req, res, next) {
 //     };
 //   }
 // }
-
-
-//conditional to see if daysperweek variable is equal to 3,4, or 5 day options?
-
-  // if (program.daysPerWeek === 3){
-  //   result = program.template[0, 1, 2]
-  // } else if (program.daysPerWeek === 4){
-  //   result = program.template[0, 1, 2, 3]
-  // }else {
-  //   result = program.template[0, 1, 2, 3, 4]
-  // }
-  // return result
 
   
