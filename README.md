@@ -1,8 +1,10 @@
 # Training-programs
 
-Welcome to blah blah! briefly explain why the app is useful, and how it can be utilized to make progress in your own training.
+Welcome to my training programs app! To start off, I would reccomend signing into your gmail account so you can access all of the apps features. Once signed in, its time to create your first program. You'll want to click the create new program button at the top of the page and once there, fill in the forms to set up your program structure. Then you can make your way over to the all programs page and click on your specific program's "daily workout" link. Here you will be able to customize your workout schedule to your own needs/prefernces. Once finished, click submit and you've got your very own custom workout program!
 
 Trello board: https://trello.com/b/yzOxtYan/training-programs-project2
+
+Deployed App: https://training-programs.herokuapp.com
 
 Technologies used: Javascript, Node, Express, Mongoose, MongoDB, 
 
