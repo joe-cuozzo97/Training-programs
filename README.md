@@ -4,7 +4,7 @@ Welcome to my training programs app! To start off, I would reccomend signing int
 
 Trello board: https://trello.com/b/yzOxtYan/training-programs-project2
 
-Deployed App: https://training-programs.herokuapp.com
+Deployed App: https://training-programs.herokuapp.com/oauth2callback
 
 Technologies used: Javascript, Node, Express, Mongoose, MongoDB, 
 
